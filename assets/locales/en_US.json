@@ -1,0 +1,31 @@
+{
+  "buttons": {
+    "login": "Login",
+    "sign_in": "Sign-in",
+    "logout": "Logout",
+    "home_menu": "Home",
+    "search_menu": "Search",
+    "library_menu": "Library",
+    "more_menu": "More",
+    "sign_in_fb": "Sign-in with Facebook",
+    "sign_in_google": "Sign-in with Google",
+    "sign_in_apple": "Sign-in with Apple"
+  }, 
+  "texts":{
+      
+      "music": "Music",
+      "session": "Session",
+      "creation": "Creation",
+      "live": "Live",
+      "artistes": "Artists",
+      "albums": "Albums",
+      "playlists": "Playlists",
+      "radios_lives": "Radios & Lives",
+      "today_history": "History today",
+      "all": "All",
+      "for_you": "For you",
+      "your_artist": "Your artist",
+      "session_of_the_day": "Session of the day",
+      "other_sessions": "Other sessions"
+  }
+}
