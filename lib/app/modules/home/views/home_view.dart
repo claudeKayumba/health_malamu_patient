@@ -104,7 +104,7 @@ class HomeView extends GetView<HomeController> with ErrorHandlerNotification {
                                 children: const [
                                   Expanded(
                                     child: Text(
-                                      'Hi Merculous',
+                                      'Votre passeport Santé',
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: AppColors.GREY_COLOR,
@@ -125,7 +125,7 @@ class HomeView extends GetView<HomeController> with ErrorHandlerNotification {
                             width: 45.0,
                             child: RawMaterialButton(
                               elevation: 0.0,
-                              fillColor: AppColors.BLUE_COLOR,
+                              fillColor: AppColors.RED_COLOR,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                                 side: BorderSide(
@@ -185,24 +185,28 @@ class HomeView extends GetView<HomeController> with ErrorHandlerNotification {
                   'title': 'Carnet Medical',
                   'sub_title': 'Lorem ipsum',
                   'color': AppColors.YELLOW_COLOR,
+                  'route': Routes.APPOINTMENT,
                 },
                 {
-                  'icon': Ionicons.calendar,
+                  'icon': Ionicons.calendar_number_sharp,
                   'title': 'Rendez-vous',
                   'sub_title': 'Lorem ipsum',
                   'color': AppColors.PURPLE_COLOR,
+                  'route': Routes.APPOINTMENT,
                 },
                 {
                   'icon': Ionicons.medical,
                   'title': 'Consultations. ',
                   'sub_title': 'Lorem ipsum',
                   'color': AppColors.RED_COLOR,
+                  'route': Routes.CONSULTING,
                 },
                 {
                   'icon': Ionicons.medical,
-                  'title': 'Carnet Medical',
+                  'title': 'Antecédant',
                   'sub_title': 'Lorem ipsum',
                   'color': AppColors.BLUE_COLOR,
+                  'route': Routes.APPOINTMENT,
                 },
               ]
                   .map(
@@ -220,43 +224,48 @@ class HomeView extends GetView<HomeController> with ErrorHandlerNotification {
                           )
                         ],
                       ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            height: 45.0,
-                            width: 45.0,
-                            decoration: BoxDecoration(
-                              color: menu['color'] as Color,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: Icon(
-                              menu['icon'] as IconData,
-                              color: AppColors.WHITE_COLOR,
-                            ),
-                          ),
-                          10.widthBox,
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                menu['title'].toString(),
-                                style: const TextStyle(
-                                    color: AppColors.DARK_COLOR,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w600),
+                      child: InkWell(
+                        onTap: () {
+                          controller.menuAction(menu['route'].toString());
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              height: 45.0,
+                              width: 45.0,
+                              decoration: BoxDecoration(
+                                color: menu['color'] as Color,
+                                borderRadius: BorderRadius.circular(10.0),
                               ),
-                              Text(
-                                menu['sub_title'].toString(),
-                                style: const TextStyle(
-                                    color: AppColors.GREY_COLOR,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w500),
+                              child: Icon(
+                                menu['icon'] as IconData,
+                                color: AppColors.WHITE_COLOR,
                               ),
-                            ],
-                          )
-                        ],
+                            ),
+                            10.widthBox,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  menu['title'].toString(),
+                                  style: const TextStyle(
+                                      color: AppColors.DARK_COLOR,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  menu['sub_title'].toString(),
+                                  style: const TextStyle(
+                                      color: AppColors.GREY_COLOR,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   )
@@ -369,7 +378,7 @@ class HomeView extends GetView<HomeController> with ErrorHandlerNotification {
               label: 'Profile',
             ),
           ],
-          selectedItemColor: AppColors.PRIMARY_COLOR,
+          selectedItemColor: AppColors.RED_COLOR,
           selectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 12.0,

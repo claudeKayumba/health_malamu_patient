@@ -23,6 +23,11 @@ class ConsulingItems extends StatelessWidget {
                   blurRadius: 8,
                   offset: const Offset(4, 4),
                 ),
+                BoxShadow(
+                  color: Colors.grey.shade200,
+                  blurRadius: 8,
+                  offset: const Offset(-4, -4),
+                ),
               ],
             ),
             child: Column(

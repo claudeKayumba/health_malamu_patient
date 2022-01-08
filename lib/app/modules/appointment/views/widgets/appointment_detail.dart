@@ -1,5 +1,4 @@
 import 'package:health_malamu_patient/app/models/appointment_result.dart';
-import 'package:health_malamu_patient/app/shared/widgets/appointment_item.dart';
 import 'package:health_malamu_patient/app/utils/app_colors.dart';
 import 'package:health_malamu_patient/app/utils/app_plugins.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -19,7 +18,9 @@ class AppointmentDetail extends StatelessWidget {
             automaticallyImplyLeading: false,
             elevation: 0.0,
             leading: RawMaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.back();
+              },
               child: const Icon(
                 Icons.keyboard_backspace,
               ),
@@ -54,9 +55,10 @@ class AppointmentDetail extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               10.heightBox,
-              const Text(
-                "Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans.",
-                style: TextStyle(
+              Text(
+                model!.description!,
+                // "Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans.",
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: AppColors.GREY_COLOR,
@@ -75,7 +77,7 @@ class AppointmentDetail extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
-                  elevation: MaterialStateProperty.all(5.0),
+                  elevation: MaterialStateProperty.all(10.0),
                   textStyle: MaterialStateProperty.all(
                     const TextStyle(color: Colors.white),
                   ),

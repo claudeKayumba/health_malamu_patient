@@ -16,5 +16,8 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
+  void menuAction(String route) {
+    Get.toNamed(route);
+  }
 }

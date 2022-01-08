@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:health_malamu_patient/app/shared/components/primary_button.dart';
 import 'package:health_malamu_patient/app/utils/app_plugins.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../controllers/profile_controller.dart';
@@ -19,7 +20,9 @@ class ProfileView extends GetView<ProfileController> {
             automaticallyImplyLeading: false,
             elevation: 0.0,
             leading: RawMaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.back();
+              },
               child: const Icon(
                 Icons.keyboard_backspace,
               ),
@@ -41,16 +44,6 @@ class ProfileView extends GetView<ProfileController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              20.0.heightBox,
-              const Text(
-                "Description",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.DARK_COLOR,
-                ),
-                textAlign: TextAlign.center,
-              ),
               10.heightBox,
               Row(
                 children: [
@@ -61,12 +54,12 @@ class ProfileView extends GetView<ProfileController> {
                       color: AppColors.GREY_COLOR.withOpacity(0.2),
                       // borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
-                          color: AppColors.GREY_COLOR.withOpacity(0.4),
+                          color: AppColors.GREY_COLOR.withOpacity(0.2),
                           width: 3.0),
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: CachedNetworkImageProvider(
-                          AppPrefs.to.userInfo?.user?.fullName ??
+                          AppPrefs.to.userInfo?.user?.avatar ??
                               'https://lakeforestgroup.com/wp-content/uploads/2014/11/doctor-profile-02.jpg',
                         ),
                         fit: BoxFit.cover,
@@ -97,6 +90,13 @@ class ProfileView extends GetView<ProfileController> {
                   )
                 ],
               ),
+              10.heightBox,
+              CustomPrimaryButton(
+                buttonColor: AppColors.RED_COLOR,
+                textValue: 'Se déconnecter',
+                textColor: Colors.white,
+                onPressed: () {},
+              )
             ],
           ),
         ),
