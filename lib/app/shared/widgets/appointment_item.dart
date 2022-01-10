@@ -37,17 +37,23 @@ class AppointmentItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              height: 120.0,
+              height: model?.medecin?.avatar != null ? 90.0 : 120,
               width: 100.0,
+              margin:
+                  EdgeInsets.all(model?.medecin?.avatar != null ? 8.0 : 0.0),
               decoration: BoxDecoration(
-                color: AppColors.GREY_COLOR.withOpacity(0.2),
+                color: AppColors.GREY_COLOR
+                    .withOpacity(model?.medecin?.avatar != null ? 0.0 : 0.2),
                 borderRadius: BorderRadius.circular(10.0),
                 image: model != null
-                    ? const DecorationImage(
+                    ? DecorationImage(
                         image: CachedNetworkImageProvider(
-                          'https://lakeforestgroup.com/wp-content/uploads/2014/11/doctor-profile-02.jpg',
+                          model?.medecin?.avatar ??
+                              'https://lakeforestgroup.com/wp-content/uploads/2014/11/doctor-profile-02.jpg',
                         ),
-                        fit: BoxFit.cover,
+                        fit: model?.medecin?.avatar != null
+                            ? BoxFit.contain
+                            : BoxFit.cover,
                       )
                     : null,
               ),
@@ -66,12 +72,13 @@ class AppointmentItem extends StatelessWidget {
                     ),
                   )
                 else
-                  const Text(
-                    'Dr Antoine Cary',
-                    style: TextStyle(
-                        color: AppColors.DARK_COLOR,
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w600),
+                  Text(
+                    (model?.medecin?.noms ?? 'Dr Antoine Cary').capitalize!,
+                    style: const TextStyle(
+                      color: AppColors.DARK_COLOR,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 if (model == null)
                   Padding(
@@ -83,7 +90,7 @@ class AppointmentItem extends StatelessWidget {
                   )
                 else
                   const Text(
-                    'Cardiologue',
+                    'Spécialité...',
                     style: TextStyle(
                       color: AppColors.BLUE_COLOR,
                       fontSize: 12.0,

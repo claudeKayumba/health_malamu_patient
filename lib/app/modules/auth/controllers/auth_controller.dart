@@ -34,11 +34,6 @@ class AuthController extends GetxController with ErrorHandlerNotification {
     try {
       if (userIDCtrl.text.isNotEmpty && passwordCtrl.text.isNotEmpty) {
         isLoading(true);
-        print({
-          "email": userIDCtrl.text,
-          "password": passwordCtrl.text,
-          "device_name": AppPrefs.to.deviceId.val
-        });
         await HttpService.request(HttpMethode.POST, Api.auth, data: {
           "email": userIDCtrl.text,
           "password": passwordCtrl.text,

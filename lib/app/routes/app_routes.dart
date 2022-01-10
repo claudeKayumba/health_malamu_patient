@@ -11,6 +11,7 @@ abstract class Routes {
   static const APPOINTMENT = _Paths.APPOINTMENT;
   static const CONSULTING = _Paths.CONSULTING;
   static const PROFILE = _Paths.PROFILE;
+  static const START_PAGE = _Paths.START_PAGE;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const APPOINTMENT = '/appointment';
   static const CONSULTING = '/consulting';
   static const PROFILE = '/profile';
+  static const START_PAGE = '/start-page';
 }

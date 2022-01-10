@@ -95,7 +95,10 @@ class ProfileView extends GetView<ProfileController> {
                 buttonColor: AppColors.RED_COLOR,
                 textValue: 'Se déconnecter',
                 textColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  AppPrefs.to.token.val = '';
+                  Get.offAllNamed(Routes.SPLASH);
+                },
               )
             ],
           ),

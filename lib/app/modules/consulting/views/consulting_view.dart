@@ -39,7 +39,9 @@ class ConsultingView extends GetView<ConsultingController> {
                 .make(),
           ),
         ),
-        body: const ConsulingItems(),
+        body: const ConsulingItems(
+          shrinkWrap: false,
+        ),
       ),
     );
   }

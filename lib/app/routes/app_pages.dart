@@ -12,6 +12,8 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/start_page/bindings/start_page_binding.dart';
+import '../modules/start_page/views/start_page_view.dart';
 
 // ignore_for_file: constant_identifier_names
 
@@ -52,6 +54,11 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.START_PAGE,
+      page: () => StartPageView(),
+      binding: StartPageBinding(),
     ),
   ];
 }

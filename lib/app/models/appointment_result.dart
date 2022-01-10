@@ -1,3 +1,5 @@
+import 'package:health_malamu_patient/app/models/medecin.dart';
+import 'package:health_malamu_patient/app/models/patient.dart';
 import 'package:health_malamu_patient/app/utils/app_plugins.dart';
 
 class AppointmentResult {
@@ -28,7 +30,7 @@ class AppointmentResult {
       this.to,
       this.total});
 
-  AppointmentResult.fromJson(Map<String, dynamic> json) {
+  AppointmentResult.fromJson(json) {
     appointments = List<Appointment>.of([]);
     currentPage = json['current_page'];
     if (json['data'] != null) {
@@ -59,6 +61,8 @@ class Appointment {
   String? createdAt;
   String? updatedAt;
   String? deletedAt;
+  Patient? patient;
+  Medecin? medecin;
 
   Appointment(
       {this.id,
@@ -69,7 +73,9 @@ class Appointment {
       this.appointmentTime,
       this.createdAt,
       this.updatedAt,
-      this.deletedAt});
+      this.deletedAt,
+      this.patient,
+      this.medecin});
 
   Appointment.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -84,22 +90,13 @@ class Appointment {
       appointmentTime =
           AppUtils.getStringTimeFormat(json['appointment_time'].toString());
     }
+    patient =
+        json['patient'] != null ? Patient.fromJson(json['patient']) : null;
+    medecin =
+        json['medecin'] != null ? Medecin.fromJson(json['medecin']) : null;
+
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     deletedAt = json['deleted_at'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['owner_id'] = this.ownerId;
-    data['concerned'] = this.concerned;
-    data['description'] = this.description;
-    data['appointment_at'] = this.appointmentAt;
-    data['appointment_time'] = this.appointmentTime;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['deleted_at'] = this.deletedAt;
-    return data;
   }
 }

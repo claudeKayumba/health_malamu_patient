@@ -82,7 +82,7 @@ class AppointmentDetail extends StatelessWidget {
                     const TextStyle(color: Colors.white),
                   ),
                   backgroundColor: MaterialStateProperty.all(
-                    AppColors.BLUE_COLOR,
+                    AppColors.RED_COLOR,
                   ),
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
@@ -137,9 +137,10 @@ class AppointmentDetail extends StatelessWidget {
                       color: AppColors.GREY_COLOR.withOpacity(0.4), width: 3.0),
                   shape: BoxShape.circle,
                   image: model != null
-                      ? const DecorationImage(
+                      ? DecorationImage(
                           image: CachedNetworkImageProvider(
-                            'https://lakeforestgroup.com/wp-content/uploads/2014/11/doctor-profile-02.jpg',
+                            model.medecin?.avatar ??
+                                'https://lakeforestgroup.com/wp-content/uploads/2014/11/doctor-profile-02.jpg',
                           ),
                           fit: BoxFit.cover,
                         )
@@ -151,15 +152,15 @@ class AppointmentDetail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Dr Antoine Cary',
-                    style: TextStyle(
+                  Text(
+                    (model?.medecin?.noms ?? 'Dr Antoine Cary').capitalize!,
+                    style: const TextStyle(
                         color: AppColors.DARK_COLOR,
                         fontSize: 12.0,
                         fontWeight: FontWeight.w600),
                   ),
                   const Text(
-                    'Cardiologue',
+                    'Spécialité',
                     style: TextStyle(
                       color: AppColors.BLUE_COLOR,
                       fontSize: 12.0,
@@ -183,7 +184,7 @@ class AppointmentDetail extends StatelessWidget {
             child: Container(
               height: 55.0,
               decoration: BoxDecoration(
-                color: const Color(0xFF53A9F5),
+                color: AppColors.RED_COLOR,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Row(
@@ -193,7 +194,7 @@ class AppointmentDetail extends StatelessWidget {
                     height: 60.0,
                     width: 60.0,
                     decoration: const BoxDecoration(
-                      color: Color(0xFF3C9CF4),
+                      color: Color(0xFFDA4E84),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10),
                         bottomLeft: Radius.circular(10),

@@ -118,7 +118,7 @@ class HttpService {
   }
 
   static _processResponse(dio_utils.Response response) {
-    developer.log(response.requestOptions.path);
+    developer.log(response.data.toString());
     developer.log(AppPrefs.to.token.val);
     switch (response.statusCode) {
       case 200:

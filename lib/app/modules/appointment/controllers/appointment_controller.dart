@@ -1,18 +1,18 @@
 import 'package:get/get.dart';
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 
 class AppointmentController extends GetxController {
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  DatePickerController datePcontroller = DatePickerController();
+  DateTime selectedDateValue = DateTime.now(); // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  // @override
+  // void onReady() {
+  //   super.onReady();
+  // }
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }
